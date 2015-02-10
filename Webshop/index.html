@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html ng-app="Main">
+<head >
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Webshop</title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+
+<div ng-controller="cartController" class="well">
+	<h3>cart</h3>
+	<table>
+	<tr>
+		<th>Product</th>
+		<th>Quantity</th>
+	</tr>
+	<tr ng-repeat="cartProduct in cartProducts">
+		<td>{{cartProduct.product.name}}</td>
+		<td>{{cartProduct.quantity}}</td>
+	</tr>
+	</table>
+</div>
+
+
+<div ng-controller="productsController">
+	<table>
+		<tr ng-repeat="product in products">
+			<td>{{ product.name}}</td>
+			<td>
+				<form ng-submit="addToCart(product)">
+				<input type="number" ng-model="quantity" />
+				<button type="submit">Add to cart</button>
+				</form>
+			</td>
+		</tr>
+		</table>
+	</div>
+
+
+
+ <h4>Cart</h4>
+  <div>Items:</div>
+<div ng-repeat="products in cart">
+     
+      <div>{{ products.name }} </div>
+   </div>
+
+{{ error }}
+<input type="search" placeholder="Search product name" ng-model="productName"/>
+
+<ul>
+        <li ng-repeat="category in categories">
+            <input type="checkbox" ng-click="categoryChange(category.category)"> {{ category.category }}   
+        </li>    
+    </ul>
+
+<ul  ng-repeat="products in products | filter:productName | filter:categoryFilter">
+	<li >Name: {{ products.name }}</li>
+	<li>Price: {{ products.price }}</li>
+	<li>Category: {{ products.category }}</li>
+	<li><img src="{{ products.image }}" />
+
+	<li><button ng-click="addToCart(products)">Køb</button>
+	
+		
+</ul>
+
+    <script src="angular/angular.min.js"></script>
+	<script src="js/app.module.js"></script>
+	<script src="js/products.controller.js"></script>
+	<script src="js/products.service.js"></script>
+	<script src="js/cart.controller.js"></script>
+	<script src="js/cart.service.js"></script>
+</body>
+</html>
