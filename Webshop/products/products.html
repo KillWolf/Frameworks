@@ -1,0 +1,37 @@
+<div ng-controller="cartController">	
+	<h3>Cart</h3>
+	<table>
+	<tr>
+		<th>Product</th>
+		<th>Quantity</th>
+	</tr>
+	<tr ng-repeat="cartProduct in cartProducts">
+		<td>{{cartProduct.product.name}}</td>
+		<td>{{cartProduct.quantity}}</td>
+	</tr>
+	</table>
+</div>
+
+<div>
+	<label ng-repeat="category in categories" class="checkbox-inline">
+		<input type="checkbox" ng-click="categoryChange(category.category)"> {{category.category}}
+	</label> 	
+</div>
+
+
+
+</div>
+	<ul ng-repeat="product in products | filter:productName | filter:productFilter | filter: categoryFilter" >
+				
+			<a ng-href="#/product/{{product.id}}"><li>Name: {{ product.name }}</td>	</div></a>
+			<li style="display: inline-block; ">Price: {{ product.price }}</li>
+			<li style="display: inline-block">Category: {{ product.category }}</li>
+			<li style="display: inline-block"><img src="{{ product.image }}" /></li>
+			<li style="display: inline-block">
+				<form ng-submit="addToCart(product)">
+				<input type="number" ng-model="quantity" />
+				<button type="submit">Add to cart</button>
+				</form>
+			</li>
+		<ul>
+	</div>
