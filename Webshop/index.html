@@ -26,7 +26,7 @@
 <div ng-controller="productsController">
 	<table>
 		<tr ng-repeat="product in products">
-			<td>{{ product.name}}</td>
+			<td>{{ product.name }}</td>
 			<td>
 				<form ng-submit="addToCart(product)">
 				<input type="number" ng-model="quantity" />
@@ -47,6 +47,9 @@
    </div>
 
 {{ error }}
+
+<div ng-controller="productsController">
+
 <input type="search" placeholder="Search product name" ng-model="productName"/>
 
 <ul>
@@ -55,21 +58,24 @@
         </li>    
     </ul>
 
+
 <ul  ng-repeat="products in products | filter:productName | filter:categoryFilter">
 	<li >Name: {{ products.name }}</li>
 	<li>Price: {{ products.price }}</li>
 	<li>Category: {{ products.category }}</li>
-	<li><img src="{{ products.image }}" />
+	<li><img src="{{ products.image }}" /></li>
 
-	<li><button ng-click="addToCart(products)">Køb</button>
+	<li><button ng-click="addToCart(products)">Køb</button></li>
 	
 		
 </ul>
 
+</div>
     <script src="angular/angular.min.js"></script>
 	<script src="js/app.module.js"></script>
-	<script src="js/products.controller.js"></script>
 	<script src="js/products.service.js"></script>
+	<script src="js/products.controller.js"></script>
+	
 	<script src="js/cart.controller.js"></script>
 	<script src="js/cart.service.js"></script>
 </body>

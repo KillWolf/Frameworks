@@ -4,7 +4,7 @@
 	var cartService = function($http, $rootScope) {
 		var addProductToCart = function(product, quantity) {
 			$rootScope.cartProducts[product.name] = {
-				product: produt,
+				product: product,
 				quantity: quantity
 
 			}

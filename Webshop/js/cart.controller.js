@@ -5,7 +5,9 @@
 		.module("Main.cart", [])
 		.controller("cartController", cartController);
 
-		function cartController($scope) {
+		function cartController($rootScope) {
+
+			
 
 		}
 })();
