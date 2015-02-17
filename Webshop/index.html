@@ -24,9 +24,21 @@
 
 
 <div ng-controller="productsController">
+
+<input type="search" placeholder="Search product name" ng-model="productName"/>
+
+<ul>
+        <li ng-repeat="category in categories">
+            <input type="checkbox" ng-click="categoryChange(category.category)"> {{ category.category }}   
+        </li>    
+    </ul>
+
 	<table>
-		<tr ng-repeat="product in products">
-			<td>{{ product.name }}</td>
+		<tr ng-repeat="product in products | filter:productName | filter:categoryFilter">
+			<td>Name: {{ product.name }}</td>	
+			<td>Price: {{ product.price }}</td>
+			<td>Category: {{ product.category }}</td>
+			<td><img src="{{ product.image }}" /></td>
 			<td>
 				<form ng-submit="addToCart(product)">
 				<input type="number" ng-model="quantity" />
@@ -37,38 +49,6 @@
 		</table>
 	</div>
 
-
-
- <h4>Cart</h4>
-  <div>Items:</div>
-<div ng-repeat="products in cart">
-     
-      <div>{{ products.name }} </div>
-   </div>
-
-{{ error }}
-
-<div ng-controller="productsController">
-
-<input type="search" placeholder="Search product name" ng-model="productName"/>
-
-<ul>
-        <li ng-repeat="category in categories">
-            <input type="checkbox" ng-click="categoryChange(category.category)"> {{ category.category }}   
-        </li>    
-    </ul>
-
-
-<ul  ng-repeat="products in products | filter:productName | filter:categoryFilter">
-	<li >Name: {{ products.name }}</li>
-	<li>Price: {{ products.price }}</li>
-	<li>Category: {{ products.category }}</li>
-	<li><img src="{{ products.image }}" /></li>
-
-	<li><button ng-click="addToCart(products)">Køb</button></li>
-	
-		
-</ul>
 
 </div>
     <script src="angular/angular.min.js"></script>

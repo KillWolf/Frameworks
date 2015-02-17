@@ -1,11 +1,13 @@
 [
 	{
+		"id": 1,
 		"name": "Sweet beer",
 		"price": 25,
 		"category": "pilsner",
 		"image": "img/01.png"
 	},
 	{
+		"id": 2,
 		"name": "Sour beer",
 		"price": 50,
 		"category": "ale",

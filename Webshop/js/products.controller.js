@@ -7,7 +7,7 @@
 
 //        function productsController($scope, productsService, cartProducts){
 
-          function productsController($scope, productsService){
+          function productsController($scope, productsService, cartService){
                $scope.categoriesSelected = new Array();
                
                var modelProducts = function(data){
@@ -18,10 +18,10 @@
                     $scope.categories = data;
                }
 
-               // $scope.addToCart = function(product){
-               //   var quantity = this.quantity;
-               //   cartService.addProductToCart(product, quantity);
-               // }
+                $scope.addToCart = function(product){
+                 var quantity = this.quantity;
+                 cartService.addProductToCart(product, quantity);
+                }
 
                $scope.categoryChange = function(category){
                var i = $scope.categoriesSelected.indexOf(category);
