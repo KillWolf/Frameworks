@@ -5,7 +5,7 @@
           .module("Main.products", [])
           .controller('productsController', productsController);
 
-          function productsController($scope, productsService, cartService){
+          function productsController($scope, $rootScope, productsService, cartService){
 
               $scope.test = "Hej";
                
@@ -21,9 +21,15 @@
                //     return categoriesSelected;
                // }
 
-                $scope.addToCart = function(product){
-                  var quantity = this.quantity;
+                $scope.addToCart = function(product, quantity){
+                    var quantity = this.quantity;
+                  if ($rootScope.cartProducts[product.name]){
+                         $rootScope.cartProducts[product.name]['quantity'] += quantity;
+                  }
+                  else {
+                  
                   cartService.addProductToCart(product, quantity);
+                  }
                }
 
           //      $scope.categoryChange = function(category){
