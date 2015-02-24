@@ -1,6 +1,7 @@
 (function(){
 	"use strict";
 
+
 	var cartService = function($http, $rootScope) {
 		var addProductToCart = function(product, quantity) {
 			$rootScope.cartProducts[product.name] = {
@@ -14,6 +15,8 @@
 			addProductToCart: addProductToCart		
 		}
 	}
+
+
 
 	angular
 		.module("Main")

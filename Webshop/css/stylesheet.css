@@ -1,0 +1,33 @@
+body {
+	text-decoration: none;
+	list-style-type: none;
+}
+
+.cartthing {
+margin: 0 20px 0 0 ;
+}
+
+a.buttoncheckout {
+    color: white;
+     }
+
+.cartbutton {
+    margin: 10px 0 0 10px;
+}
+
+button {
+    margin: 0 5px 0 0;
+}
+
+.products {
+    list-style-type: none;
+    display: inline-block;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.categorycheck {
+    margin: 0 0 0 35px;
+}

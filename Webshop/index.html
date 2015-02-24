@@ -4,55 +4,55 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Webshop</title>
-	<link rel="stylesheet" href="">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/stylesheet.css">
 </head>
 <body>
 
-<!--<div ng-controller="cartController" class="well">
+
+
+<div ng-controller="cartController" class="pull-right cartthing">	
 	<h3>Cart</h3>
 	<table>
-	<tr>
-		<th>Product</th>
-		<th>Quantity</th>
-	</tr>
 	<tr ng-repeat="cartProduct in cartProducts">
-		<td>{{cartProduct.product.name}}</td>
-		<td>{{cartProduct.quantity}}</td>
+		<td>{{cartProduct.product.name}}, quantity: {{cartProduct.quantity}}</td>
+		
 	</tr>
 	</table>
-</div>-->
+	<a ng-href="#/checkout"><button type="button" class="btn btn-success"><li>Checkout</li></button></a>
+	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#cart">Show cart</button>
+</div>
+
+	
+
+	<div class="modal fade" id="cart">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h4>Cart contains:</h4>
+				</div>
+				<div class="modal-body">
+					<table class="table table-hover table-condensed" border="2">
+						<tr ng-repeat="cartProduct in cartProducts">
+							<td>{{cartProduct.product.name}}</td>
+							<td>{{cartProduct.quantity}} &times; {{cartProduct.product.price}}.-</td>
+							<td> = {{cartProduct.quantity * cartProduct.product.price}} .-</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div> 	
+
 
 <div ng-view></div>
 
 
-<!--<div ng-controller="productsController">
-
-<input type="search" placeholder="Search product name" ng-model="productName"/>
-
-<ul>
-        <li ng-repeat="category in categories">
-            <input type="checkbox" ng-click="categoryChange(category.category)"> {{ category.category }}   
-        </li>    
-    </ul>
-
-	<table>
-		<tr ng-repeat="product in products | filter:productName | filter:categoryFilter">
-			<td>Name: {{ product.name }}</td>	
-			<td>Price: {{ product.price }}</td>
-			<td>Category: {{ product.category }}</td>
-			<td><img src="{{ product.image }}" /></td>
-			<td>
-				<form ng-submit="addToCart(product)">
-				<input type="number" ng-model="quantity" />
-				<button type="submit">Add to cart</button>
-				</form>
-			</td>
-		</tr>
-		</table>
-	</div>
 
 
-</div>-->
+</div>
+	<script src="js/jquery/jquery-1.11.2.min.js"></script>
+	<script src="js/bootstrap/bootstrap.min.js"></script>
     <script src="angular/angular.min.js"></script>
     <script src="node_modules/angular-route/angular-route.js"></script>
     <script src="js/app.module.js"></script>	

@@ -1,37 +1,38 @@
-<div ng-controller="cartController">	
-	<h3>Cart</h3>
-	<table>
-	<tr>
-		<th>Product</th>
-		<th>Quantity</th>
-	</tr>
-	<tr ng-repeat="cartProduct in cartProducts">
-		<td>{{cartProduct.product.name}}</td>
-		<td>{{cartProduct.quantity}}</td>
-	</tr>
-	</table>
-</div>
 
-<div>
-	<label ng-repeat="category in categories" class="checkbox-inline">
+
+
+		
+<div class="container-fluid">
+	<div class="row">
+	   	<div class="col-md-12">
+
+	   	<div>
+	<label ng-repeat="category in categories" class="checkbox categorycheck">
 		<input type="checkbox" ng-click="categoryChange(category.category)"> {{category.category}}
-	</label> 	
-</div>
+	</label>
+</div> <br>
 
+<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-2">
+					<input type="search" placeholder="Search&hellip;" ng-model="productName" />
+				</div>
+			</div>
+		</div>
 
-
-</div>
-	<ul ng-repeat="product in products | filter:productName | filter:productFilter | filter: categoryFilter" >
+	<ul ng-repeat="product in products | filter:productName | filter:productFilter" class="products">
 				
-			<a ng-href="#/product/{{product.id}}"><li>Name: {{ product.name }}</td>	</div></a>
-			<li style="display: inline-block; ">Price: {{ product.price }}</li>
-			<li style="display: inline-block">Category: {{ product.category }}</li>
-			<li style="display: inline-block"><img src="{{ product.image }}" /></li>
+			<a ng-href="#/product/{{product.id}}"><li><h3>{{ product.name }}</h3></li></a>
+			<li style="display: inline-block;"> Price: {{ product.price }}</li><br>
+			<li style="display: inline-block;"> Category: {{ product.category }}</li><br>
+			<li style="display: inline-block;"><img src="{{ product.image }}" /></li><br>
 			<li style="display: inline-block">
 				<form ng-submit="addToCart(product)">
 				<input type="number" ng-model="quantity" />
-				<button type="submit">Add to cart</button>
+				<button type="submit" class="btn btn-default">Add to cart</button>
 				</form>
 			</li>
-		<ul>
+		</ul>
+		</div>
+		</div>
 	</div>

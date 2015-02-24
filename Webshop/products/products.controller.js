@@ -23,6 +23,7 @@
 
                 $scope.addToCart = function(product, quantity){
                     var quantity = this.quantity;
+                    console.log(product)
                   if ($rootScope.cartProducts[product.name]){
                          $rootScope.cartProducts[product.name]['quantity'] += quantity;
                   }
@@ -56,9 +57,8 @@
 
           productsService.getCategories()
                .then(modelCategories);
-          }         
 
-
+               
           var updateCategoriesSelected = function(){
                $scope.categoriesSelected = productsService.getCategoriesSelected();
           }
@@ -68,11 +68,15 @@
           }
 
           $scope.categoryChange = function(category){
+                console.log(category)
                productsService.categoryChange(category);
                updateCategoriesSelected();
           }
 
           updateCategoriesSelected();
+
+          }         
+
 
 
 }());

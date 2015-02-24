@@ -1,0 +1,6 @@
+<a ng-href="#/"><button type="button" class="btn btn-default cartbutton">Go Back</button></a>
+<h1>CHECKOUT</h1>
+<ul ng-repeat="cartProduct in cartProducts">
+	<li>{{cartProduct.product.name}}</li>
+	<li>{{cartProduct.quantity}}</li>
+	</ul>

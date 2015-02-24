@@ -45,6 +45,7 @@
 			var i = categoriesSelected.indexOf(category);
             if (i > -1) {
                 categoriesSelected.splice(i, 1);
+
             } 
             else {
                 categoriesSelected.push(category);
@@ -54,7 +55,9 @@
 
 		var productFilter = function(product){
             if (categoriesSelected.length > 0) {
+
                 if (categoriesSelected.indexOf(product.category) < 0){
+
                     return;
                 }
             }
@@ -64,7 +67,7 @@
         	var categoryFilter = function(category){
 
             if (categoriesSelected.length > 0) {
-
+            		
                 if (categoriesSelected.indexOf(category.category) < 0){
 
                     return;
